@@ -271,9 +271,19 @@ article.vh-article-main {
     /* 结束角度 */
   }
 }
-aside-toc {
+.aside-toc {
+  flex-shrink: 0;
   position: relative;
   box-sizing: border-box;
+  padding-left: 1rem;
   display: flex;
   flex-direction: column;
+  gap: 1rem;
+  width: 260px; /* TOC 侧栏宽度 */
+}
+
+@media screen and (max-width: 1150px) {
+  .aside-toc {
+    display: none; /* 移动端隐藏目录 */
+  }
 }

@@ -9,8 +9,7 @@ const { ad_Client, asideAD_Slot, articleAD_Slot } = GoogleAds;
 import Head from "@/components/Head/Head.astro";
 // 顶部 Header
 import Header from "@/components/Header/Header.astro";
-// Main 区域 Header
-import MainHeader from "@/components/MainHeader/MainHeader.astro";
+
 // Aside组件
 import Aside from "@/components/Aside/Aside.astro";
 // 底部 Footer
@@ -52,35 +51,31 @@ import CardTableOfContents from "@/components/TOC/CardTableOfContents.astro";
     <Fragment
       set:html={`<style>:root {${Object.entries(Theme)
         .map(([key, value]) => `${key}:${value};`)
-        .join(
-          ""
-        )}--vh-main-header-height:${Home ? HomeBanner.HomeHeight : HomeBanner.PageHeight};--vh-home-banner:${HomeBanner.background}}</style>`}
+        .join("")}--vh-home-banner:${HomeBanner.background}}</style>`}
     />
   </Head>
   <body>
+    {Home && <div class="paopao-layer" />}
     <MobileSidebar />
     <Header activeNav={activeNav} />
     <main class="main">
-      {HomeBanner.enable && <MainHeader />}
-      <section
+        <section
         class="main-inner"
-        style={`padding-top:${HomeBanner.enable ? "0.88rem" : "calc(66px + 0.68rem)"}`}
+        style={`padding-top:calc(66px + 0.68rem)`}
       >
         <Aside />
         <section class="main-inner-content">
           <slot />
         </section>
-		<p> hastoc /{hastoc}/ Home {Home}</p>
-        { <section class="aside-toc">
-          {
-            headings?.length > 0 && (
-              <CardTableOfContents
-                title={title}
-                headings={headings}
-              />
-            )
-          }
-        </section>}
+
+        {hastoc && headings?.length > 0 && (
+          <section class="aside-toc">
+            <CardTableOfContents
+              title={title}
+              headings={headings}
+            />
+          </section>
+        )}
       </section>
       <BackTop />
     </main>

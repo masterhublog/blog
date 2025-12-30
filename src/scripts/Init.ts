@@ -95,9 +95,20 @@ export default () => {
   // 首次初始化
   indexInit();
   // 进入页面时触发
-  inRouter(() => indexInit(false));
+  inRouter(() => {
+    indexInit(false);
+    // Prefer showing the TOC (it will init itself), fallback to reinit if show is not available
+    try {
+      if ((window as any).__vh_toc_show) {
+        (window as any).__vh_toc_show();
+      } else if ((window as any).__vh_toc_reinit) {
+        (window as any).__vh_toc_reinit();
+      }
+    } catch (e) {}
+  });
   // 离开当前页面时触发
   outRouter(() => {
+    try { (window as any).__vh_toc_hide && (window as any).__vh_toc_hide(); } catch (e) {}
     // 销毁评论
     commentLIst.walineInit && commentLIst.walineInit.destroy();
     commentLIst.walineInit = null;

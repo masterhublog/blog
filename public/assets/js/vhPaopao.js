@@ -10,7 +10,7 @@ export default (element, options) => {
     height = element.offsetHeight;
     Object.assign(canvas.style, { top: '0', zIndex: '0', position: 'absolute', 'pointer-events': 'none' });
     element.append(canvas);
-    element.parentElement.style.overflow = 'hidden';
+    // 不修改父元素 overflow，避免阻塞页面滚动（原实现会阻止滚轮滚动）
     canvas.width = width;
     canvas.height = height;
     canvas.classList.add('vh-paopao');
@@ -40,11 +40,30 @@ export default (element, options) => {
   }
   // 初始化
   initCanvas();
-  // 动画循环
-  const animate = () => { active && ctx.clearRect(0, 0, width, height); particles.forEach(p => p.draw()); requestAnimationFrame(animate); };
-  Array.from({ length: width * config.density | 0 }, () => particles.push(new Particle()));
+  // 动画循环（当页面滚动超出气泡层时暂停绘制，防止产生拖尾/白柱）
+  const animate = () => {
+    if (!active) {
+      // 在变为不活跃时清空画布一次，避免残留轨迹
+      ctx && ctx.clearRect(0, 0, width, height);
+      requestAnimationFrame(animate);
+      return;
+    }
+    ctx.clearRect(0, 0, width, height);
+    particles.forEach(p => p.draw());
+    requestAnimationFrame(animate);
+  };
+  Array.from({ length: Math.max(1, width * config.density | 0) }, () => particles.push(new Particle()));
   animate();
   // 事件监听
-  window.addEventListener('scroll', () => active = document.documentElement.scrollTop <= height);
+  window.addEventListener('scroll', () => {
+    const isActive = document.documentElement.scrollTop <= height;
+    if (isActive && !active) {
+      active = true;
+    } else if (!isActive && active) {
+      active = false;
+      // 立即清除画布，确保没有残留
+      ctx && ctx.clearRect(0, 0, width, height);
+    }
+  });
   window.addEventListener('resize', () => { width = element.clientWidth; height = element.clientHeight; canvas.width = width; canvas.height = height; });
 };

@@ -29,8 +29,11 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 }, [] as HeadingWithSubheadings[]);
 ---
 
-{headings && <div class="toc">
-  <span class="toc-title">目录</span>
+{headings && <div class="card-toc">
+  <div class="toc-header">
+    <span class="toc-title">目录</span>
+    <div class="toc-progress" aria-hidden="true"><div id="toc-progress-inner" class="inner"></div></div>
+  </div>
   <span id="toc-process" class="text-xs" slot="extra"></span>
   <ol class="text-0.8em lh-snug">
     <li class="title pl-2">{title}</li>
@@ -38,18 +41,22 @@ const grouppedHeadings = headings.reduce((array, heading) => {
       (() => {
         const h = (heading: HeadingWithSubheadings, number: string) => (
           <li class="pl-2">
-            <a
-              class="w-full inline-block truncate duration-300"
-              href={`#${heading.slug}`}
-            >
-              {number}. {heading.text}
-            </a>
+            <div class="toc-item">
+              <a
+                class="w-full inline-block truncate duration-300"
+                href={`#${heading.slug}`}
+              >
+                {number}. {heading.text}
+              </a>
+              {heading.subheadings && heading.subheadings.length > 0 && (
+                <button class="toc-toggle" aria-expanded="true" aria-label="Toggle subheadings">▾</button>
+              )}
+            </div>
             {heading.subheadings && (
-              <ol>
-                {" "}
+              <ol class="sub-list">
                 {heading.subheadings.map((subheading, i) =>
                   h(subheading, `${number}.${i + 1}`)
-                )}{" "}
+                )}
               </ol>
             )}
           </li>
@@ -99,55 +106,141 @@ const grouppedHeadings = headings.reduce((array, heading) => {
     return result;
   };
 
-  //TOC定义
-  const toc = [...document.querySelectorAll<HTMLElement>(".card-toc a")].map(
-    (a) => ({
-      linkEl: a,
-      headingEl: document.querySelector<HTMLHeadingElement>(
-        a.getAttribute("href")!
-      )!,
-    })
-  );
+  // init function so TOC can be re-initialized on SPA navigation
+  let _observer: IntersectionObserver | null = null;
+  let _toc: Array<{linkEl: HTMLElement; headingEl: HTMLElement}> = [];
+  let _initRetries = 0;
+  const buildThresholdList = () => {
+    const thresholds = [];
+    for (let i = 0; i <= 100; i++) thresholds.push(i / 100);
+    return thresholds;
+  };
 
-  //平滑跳转
-  toc.forEach(({ linkEl, headingEl }) => {
-    linkEl.addEventListener("click", (event) => {
-      event.preventDefault();
-      window.scrollTo({ top: headingEl.offsetTop, behavior: "smooth" });
+  const cleanup = () => {
+    _observer && _observer.disconnect();
+    _observer = null;
+    _toc.forEach(({ linkEl }) => linkEl.classList.remove('active'));
+    _toc = [];
+  };
+
+  const initToc = () => {
+    cleanup();
+    _initRetries++;
+
+    const links = Array.from(document.querySelectorAll<HTMLElement>(".card-toc a"));
+    _toc = links
+      .map((a) => ({ linkEl: a, headingEl: document.querySelector<HTMLHeadingElement>(a.getAttribute("href")!) as HTMLElement }))
+      .filter(({ headingEl }) => !!headingEl);
+
+    console.log('[TOC] initToc attempt #' + _initRetries + ', links:', links.length, 'found headings:', _toc.length);
+
+    if (_toc.length === 0 && _initRetries < 10) {
+      // maybe content not yet mounted — retry shortly
+      console.warn('[TOC] No headings found, retrying...', _initRetries);
+      setTimeout(initToc, 300);
+      return;
+    }
+
+    if (_toc.length === 0) {
+      const aside = document.querySelector('.aside-toc') as HTMLElement | null;
+      if (aside) aside.classList.add('vh-toc-hidden');
+      console.warn('[TOC] No headings found after retries; hiding TOC.');
+      return;
+    }
+
+    // 平滑跳转
+    _toc.forEach(({ linkEl, headingEl }) => {
+      linkEl.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({ top: headingEl.offsetTop - 60, behavior: "smooth" });
+      });
     });
-  });
 
-  //获取下一个同类型的标题元素
-  const headingElListWithNext = mapNextSameHeadingElement(
-    toc.map(({ headingEl }) => headingEl)
-  );
-  toc.forEach(({ linkEl, headingEl }, index) => {
-    const linkElNext = toc.at(index + 1)?.linkEl;
-    const headingElNext = headingElListWithNext.find(
-      ({ el }) => el === headingEl
-    )!.next;
-    const headingElInViewport = () => {
-      const viewportTop = headingEl.getBoundingClientRect().top;
-      const viewportBottom = headingElNext
-        ? headingElNext.getBoundingClientRect().top
-        : headingEl.getBoundingClientRect().bottom;
-      return viewportTop >= 0 && viewportBottom <= window.innerHeight;
-    };
-    const setLinkElClass = () => {
-      linkEl.classList[headingElInViewport() ? "add" : "remove"]("active");
-      setTimeout(() => {
-        if (linkElNext?.className.includes("active")) {
-          linkEl.classList.add("active");
+    // collapse toggles
+    document.querySelectorAll<HTMLButtonElement>(".card-toc .toc-toggle").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const li = btn.closest("li");
+        if (!li) return;
+        const expanded = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", expanded ? "false" : "true");
+        li.classList.toggle("collapsed", !expanded);
+      });
+    });
+
+    // IntersectionObserver approach to set active item robustly
+    const intersectionMap = new Map<HTMLElement, number>();
+    _observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        intersectionMap.set(entry.target as HTMLElement, entry.intersectionRatio);
+      });
+      // choose element with max intersectionRatio
+      let maxEl: HTMLElement | null = null;
+      let maxRatio = 0;
+      for (const [el, ratio] of intersectionMap.entries()) {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          maxEl = el;
         }
-      }, 1);
-    };
-    setLinkElClass();
-    let debounceTimeout: NodeJS.Timeout;
-    window.addEventListener("scroll", () => {
-      clearTimeout(debounceTimeout);
-      debounceTimeout = setTimeout(setLinkElClass, 5);
-    });
-  });
+      }
+      if (maxEl) {
+        const idx = _toc.findIndex((t) => t.headingEl === maxEl);
+        if (idx >= 0) setActiveByIndex(idx);
+      }
+    }, { root: null, rootMargin: '-30% 0px -30% 0px', threshold: buildThresholdList() });
+
+    _toc.forEach(({ headingEl }) => _observer && _observer.observe(headingEl));
+
+    // if we have toc items, reset retry counter
+    _initRetries = 0;
+  };
+
+  const setActiveByIndex = (index: number) => {
+    _toc.forEach((t, i) => t.linkEl.classList.toggle("active", i === index));
+    // ensure active item visible
+    const active = _toc[index]?.linkEl as HTMLElement | undefined;
+    if (active) active.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+  };
+
+  // initial run
+  initToc();
+
+  // expose reinit for router events
+  (window as any).__vh_toc_reinit = initToc;
+
+  // Hide TOC on route start and re-init on page view (swup hooks)
+  const hideToc = () => {
+    const aside = document.querySelector('.aside-toc') as HTMLElement | null;
+    if (aside) aside.classList.add('vh-toc-hidden');
+    console.log('[TOC] hideToc called');
+  };
+  const showToc = () => {
+    const aside = document.querySelector('.aside-toc') as HTMLElement | null;
+    if (aside) aside.classList.remove('vh-toc-hidden');
+    console.log('[TOC] showToc called');
+    setTimeout(() => {
+      initToc();
+      setTimeout(() => {
+        if (_toc.length === 0 && aside) aside.classList.add('vh-toc-hidden');
+      }, 400);
+    }, 260);
+  };
+
+  // expose for global calls
+  (window as any).__vh_toc_hide = hideToc;
+  (window as any).__vh_toc_show = showToc;
+  (window as any).__vh_toc_reinit = initToc;
+
+  const setupRouterHooks = () => {
+    if ((window as any).swup && (window as any).swup.hooks) {
+      console.log('[TOC] registering swup hooks');
+      (window as any).swup.hooks.on('visit:start', hideToc);
+      (window as any).swup.hooks.on('page:view', showToc);
+    } else {
+      document.addEventListener('swup:enable', () => setupRouterHooks());
+    }
+  };
+  setupRouterHooks();
+
 
   // 阅读进度
   const tocProcessEl = document.getElementById("toc-process")!;
@@ -160,13 +253,27 @@ const grouppedHeadings = headings.reduce((array, heading) => {
     let tocProcess = getTocProcess();
     tocProcess = isNaN(tocProcess) || tocProcess == 0 ? 0 : tocProcess;
     tocProcessEl.innerText = tocProcess ? tocProcess.toFixed(1) + "%" : "";
+    // 更新进度条宽度
+    const inner = document.getElementById("toc-progress-inner");
+    if (inner) inner.style.width = (Math.max(0, Math.min(100, tocProcess))).toFixed(1) + "%";
   };
   document.addEventListener("DOMContentLoaded", setTocProcessToEl);
   window.addEventListener("scroll", setTocProcessToEl);
+  // ensure last item is active when reaching page bottom
+  window.addEventListener('scroll', () => {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+      setActiveByIndex(_toc.length - 1);
+    }
+  });
 </script>
 
 <style is:global>
   .card-toc a.active {
-    color: #49b1f5;
+    color: var(--vh-white-color);
+    background: linear-gradient(90deg, var(--vh-main-color), var(--vh-main-color-66));
+    box-shadow: var(--vh-box-shadow);
+    border-radius: 0.4rem;
   }
+  .card-toc a.active::before { background: rgba(255,255,255,0.9); }
+  .card-toc a:hover { text-decoration: none; }
 </style>

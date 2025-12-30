@@ -94,9 +94,22 @@ html {
 			top: 0;
 			width: 100vw;
 			height: 100vh;
-			background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='8' height='8' fill='none' stroke='rgb(0 0 0 / 0.1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+			/* 使用 home banner 作为首选背景，回退为 body bg */
+			background: var(--vh-home-banner, var(--vh-body-bg, #F8F8F8));
+			background-repeat: no-repeat;
+			background-position: center 60%;
+			background-size: cover;
 			z-index: -1;
 		}
+
+/* 气泡层 */
+.paopao-layer {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	overflow: hidden;
+}
 
 		&>footer {
 			box-sizing: border-box;
