@@ -6,7 +6,7 @@ import APlayer from 'aplayer';
 
 // 初始化音乐播放器
 export default async (MusicList: any[]) => {
-  const musicDOM: any = document.querySelectorAll(".vh-node.vh-vhMusic");
+  const musicDOM: any = document.querySelectorAll(".mh-node.mh-vhMusic");
   if (!musicDOM.length) return;
   musicDOM.forEach(async (container: any) => {
     const { type = 'song', server = 'netease', id } = container.dataset;

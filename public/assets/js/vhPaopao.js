@@ -1,5 +1,5 @@
 export default (element, options) => {
-  document.querySelectorAll('.vh-paopao').forEach(item => setTimeout(() => item.remove()));
+  document.querySelectorAll('.mh-paopao').forEach(item => setTimeout(() => item.remove()));
   const config = Object.assign({ radius: 10, density: 0.3, clearOffset: 0.2 }, options);
   let width, height, ctx, active = true;
   const canvas = document.createElement('canvas');
@@ -13,7 +13,7 @@ export default (element, options) => {
     // 不修改父元素 overflow，避免阻塞页面滚动（原实现会阻止滚轮滚动）
     canvas.width = width;
     canvas.height = height;
-    canvas.classList.add('vh-paopao');
+    canvas.classList.add('mh-paopao');
     ctx = canvas.getContext('2d');
   };
 

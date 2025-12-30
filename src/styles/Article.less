@@ -1,4 +1,4 @@
-article.vh-article-main {
+article.mh-article-main {
   position: relative;
   box-sizing: border-box;
   display: flex;
@@ -13,10 +13,10 @@ article.vh-article-main {
     flex-direction: column;
     width: 100%;
     height: max-content;
-    background-color: var(--vh-white-color);
+    background-color: var(--mh-white-color);
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-    box-shadow: var(--vh-box-shadow);
+    box-shadow: var(--mh-box-shadow);
     overflow: hidden;
 
     &>h1 {
@@ -49,7 +49,7 @@ article.vh-article-main {
         }
 
         &>time {
-          color: var(--vh-font-66);
+          color: var(--mh-font-66);
         }
 
         &>span {
@@ -81,7 +81,7 @@ article.vh-article-main {
     flex-direction: column;
     width: 100%;
     height: max-content;
-    background-color: var(--vh-white-color);
+    background-color: var(--mh-white-color);
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     box-shadow: 0 12px 8px 6px #07111b0d;
@@ -97,7 +97,7 @@ article.vh-article-main {
 
     .dplayer-controller {
       span {
-        color: var(--vh-white-color);
+        color: var(--mh-white-color);
       }
     }
 
@@ -120,7 +120,7 @@ article.vh-article-main {
         gap: 0.28rem;
         width: max-content;
         height: 1.5rem;
-        color: var(--vh-info);
+        color: var(--mh-info);
         border-radius: 0.28rem;
         font-size: 0.76rem;
         transition: color 0.288s ease-in-out;
@@ -128,7 +128,7 @@ article.vh-article-main {
         z-index: 1;
 
         &:hover {
-          color: var(--vh-main-color) !important;
+          color: var(--mh-main-color) !important;
 
           &::before {
             width: 100%;
@@ -154,7 +154,7 @@ article.vh-article-main {
           height: 100%;
           z-index: 1;
           transition: width 0.288s ease-in-out;
-          background-color: var(--vh-main-color-16);
+          background-color: var(--mh-main-color-16);
         }
 
         &::after {
@@ -167,50 +167,50 @@ article.vh-article-main {
 
 
         &:nth-of-type(6n+1) {
-          color: var(--vh-default);
+          color: var(--mh-default);
 
           &::after {
-            background-color: var(--vh-default-hover);
+            background-color: var(--mh-default-hover);
           }
         }
 
         &:nth-of-type(6n+2) {
-          color: var(--vh-info);
+          color: var(--mh-info);
 
           &::after {
-            background-color: var(--vh-info-hover);
+            background-color: var(--mh-info-hover);
           }
         }
 
         &:nth-of-type(6n+3) {
-          color: var(--vh-success);
+          color: var(--mh-success);
 
           &::after {
-            background-color: var(--vh-success-hover);
+            background-color: var(--mh-success-hover);
           }
         }
 
         &:nth-of-type(6n+4) {
-          color: var(--vh-warning);
+          color: var(--mh-warning);
 
           &::after {
-            background-color: var(--vh-warning-hover);
+            background-color: var(--mh-warning-hover);
           }
         }
 
         &:nth-of-type(6n+5) {
-          color: var(--vh-error);
+          color: var(--mh-error);
 
           &::after {
-            background-color: var(--vh-error-hover);
+            background-color: var(--mh-error-hover);
           }
         }
 
         &:nth-of-type(6n+6) {
-          color: var(--vh-import);
+          color: var(--mh-import);
 
           &::after {
-            background-color: var(--vh-import-hover);
+            background-color: var(--mh-import-hover);
           }
         }
 
@@ -232,7 +232,7 @@ article.vh-article-main {
 }
 
 @media screen and (max-width: 999px) {
-  article.vh-article-main {
+  article.mh-article-main {
     &>header {
       &>h1 {
         font-size: 1.36rem;
@@ -251,8 +251,8 @@ article.vh-article-main {
       font-size: 1.125rem;
     }
 
-    .vh-node {
-      &.vh-picture {
+    .mh-node {
+      &.mh-picture {
         grid-template-columns: repeat(auto-fit, minmax(48%, 1fr));
       }
     }

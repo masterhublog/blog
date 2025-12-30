@@ -1,4 +1,4 @@
-aside.vh-aside {
+aside.mh-aside {
   flex-shrink: 0;
   position: relative;
   box-sizing: border-box;
@@ -6,7 +6,7 @@ aside.vh-aside {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: var(--vh-aside-width);
+  width: var(--mh-aside-width);
   height: auto;
 
   &>.sticky-aside {
@@ -20,7 +20,7 @@ aside.vh-aside {
     width: 100%;
   }
 
-  .vh-aside-item {
+  .mh-aside-item {
     position: relative;
     box-sizing: border-box;
     padding: 1.28rem;
@@ -31,23 +31,23 @@ aside.vh-aside {
     width: 100%;
     max-width: 100%;
     height: max-content;
-    border-radius: var(--vh-main-radius);
-    background-color: var(--vh-white-color);
-    box-shadow: var(--vh-box-shadow);
+    border-radius: var(--mh-main-radius);
+    background-color: var(--mh-white-color);
+    box-shadow: var(--mh-box-shadow);
     overflow: hidden;
 
     &>h3 {
       width: 100%;
       font-size: 0.68rem;
       font-weight: 400;
-      color: var(--vh-font-56);
+      color: var(--mh-font-56);
     }
 
     // 用户信息
     &.user {
       padding: 1.88rem 0;
 
-      &>.vh-aside-avatar {
+      &>.mh-aside-avatar {
         position: relative;
         width: 6.36rem;
         height: 6.36rem;
@@ -55,7 +55,7 @@ aside.vh-aside {
         overflow: hidden;
       }
 
-      &>.vh-aside-auther {
+      &>.mh-aside-auther {
         position: relative;
         font-size: 1.25rem;
 
@@ -69,7 +69,7 @@ aside.vh-aside {
           width: 36%;
           height: 0.26rem;
           border-radius: 3px;
-          background-color: var(--vh-main-color-88);
+          background-color: var(--mh-main-color-88);
         }
       }
 
@@ -80,7 +80,7 @@ aside.vh-aside {
         width: 100%;
         max-width: 28.88rem;
         height: max-content;
-        color: var(--vh-font-88);
+        color: var(--mh-font-88);
         text-align: center;
         font-size: 0.88rem;
         line-height: 1.5rem;
@@ -99,8 +99,8 @@ aside.vh-aside {
             left top,
             right top,
             color-stop(0%, rgb(0 0 0 / 70%)),
-            color-stop(35%, var(--vh-font-88)),
-            color-stop(65%, var(--vh-font-88)),
+            color-stop(35%, var(--mh-font-88)),
+            color-stop(65%, var(--mh-font-88)),
             color-stop(100%, rgb(0 0 0 / 70%))
           );
         }
@@ -120,19 +120,19 @@ aside.vh-aside {
         }
       }
 
-      &>.vh-aside-motto {
+      &>.mh-aside-motto {
         font-size: 0.86rem;
-        color: var(--vh-font-66);
+        color: var(--mh-font-66);
         line-height: 1.5;
         text-align: center;
       }
 
-      &>.vh-aside-links {
+      &>.mh-aside-links {
         display: flex;
         align-items: center;
         gap: 0.5rem;
 
-        &>.vh-aside-links-item {
+        &>.mh-aside-links-item {
           position: relative;
           display: flex;
           align-items: center;
@@ -140,14 +140,14 @@ aside.vh-aside {
           width: 1.88rem;
           height: 1.88rem;
           border: solid 1px #333;
-          background-color: var(--vh-white-color);
+          background-color: var(--mh-white-color);
           border-radius: 0.38rem;
           overflow: hidden;
           z-index: 1;
 
           &:hover {
-            color: var(--vh-white-color);
-            border-color: var(--vh-white-color);
+            color: var(--mh-white-color);
+            border-color: var(--mh-white-color);
 
             &::after {
               height: 100%;
@@ -161,7 +161,7 @@ aside.vh-aside {
             bottom: 0;
             width: 100%;
             height: 0;
-            background-color: var(--vh-main-color-88);
+            background-color: var(--mh-main-color-88);
             transition: height 0.18s ease-in-out;
             z-index: -1;
           }
@@ -175,7 +175,7 @@ aside.vh-aside {
         }
       }
 
-      &>.vh-aside-info {
+      &>.mh-aside-info {
         box-sizing: border-box;
         padding: 0 1rem;
         display: grid;
@@ -191,29 +191,29 @@ aside.vh-aside {
           justify-content: center;
           gap: 0.28rem;
           text-align: center;
-          background: var(--vh-white-color);
-          border-radius: var(--vh-main-radius);
+          background: var(--mh-white-color);
+          border-radius: var(--mh-main-radius);
           user-select: none;
           transition: box-shadow 0.18s ease-in-out;
 
           &:hover {
-            box-shadow: var(--vh-box-shadow);
+            box-shadow: var(--mh-box-shadow);
             z-index: 1;
           }
 
           &>span {
             font-size: 1.05rem;
-            color: var(--vh-font-color);
+            color: var(--mh-font-color);
           }
 
           &>p {
             font-size: 0.8rem;
-            color: var(--vh-font-56);
+            color: var(--mh-font-56);
           }
         }
       }
 
-      &>.vh-aside-canvas {
+      &>.mh-aside-canvas {
         position: absolute;
         left: 0;
         top: 0;
@@ -238,7 +238,7 @@ aside.vh-aside {
 
         &>svg {
           margin-bottom: 0.188rem;
-          color: var(--vh-main-color);
+          color: var(--mh-main-color);
           width: 1.18rem;
           height: 1.18rem;
           object-fit: contain;
@@ -261,7 +261,7 @@ aside.vh-aside {
 
     // 分类
     &.cat {
-      &>.vh-aside-cat {
+      &>.mh-aside-cat {
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -280,14 +280,14 @@ aside.vh-aside {
           height: 2.18rem;
           font-size: 0.88rem;
           border-radius: 0.38rem;
-          background-color: var(--vh-white-color);
+          background-color: var(--mh-white-color);
           transition: all 0.18s ease-in-out;
           overflow: hidden;
 
           &:hover {
             padding-left: 0.66rem;
-            background-color: var(--vh-main-color-66);
-            color: var(--vh-white-color);
+            background-color: var(--mh-main-color-66);
+            color: var(--mh-white-color);
 
             &>i {
               background-color: transparent;
@@ -300,11 +300,11 @@ aside.vh-aside {
             justify-content: center;
             width: 1.68rem;
             height: 1.28rem;
-            color: var(--vh-white-color);
+            color: var(--mh-white-color);
             font-size: 0.66rem;
             font-style: normal;
             border-radius: 0.38rem;
-            background-color: var(--vh-main-color-66);
+            background-color: var(--mh-main-color-66);
             transition: background 0.18s ease-in-out;
             overflow: hidden;
           }
@@ -314,7 +314,7 @@ aside.vh-aside {
 
     // 标签
     &.tags {
-      &>.vh-aside-tags {
+      &>.mh-aside-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 0.68rem 1rem;
@@ -333,7 +333,7 @@ aside.vh-aside {
 
           &:hover {
             &>span {
-              color: var(--vh-main-color);
+              color: var(--mh-main-color);
             }
           }
 
@@ -348,7 +348,7 @@ aside.vh-aside {
 
           &>em {
             // display: none;
-            color: var(--vh-font-28);
+            color: var(--mh-font-28);
             font-size: 0.688rem;
             font-style: normal;
           }
@@ -358,7 +358,7 @@ aside.vh-aside {
 
     // 推荐文章
     &.articles {
-      &>.vh-aside-articles {
+      &>.mh-aside-articles {
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -378,7 +378,7 @@ aside.vh-aside {
           &:hover {
             &>span {
               &>cite {
-                color: var(--vh-main-color);
+                color: var(--mh-main-color);
 
                 &::after {
                   width: 100%;
@@ -390,7 +390,7 @@ aside.vh-aside {
           &:nth-of-type(2) {
             &>span {
               &>i {
-                background-color: var(--vh-warning);
+                background-color: var(--mh-warning);
               }
             }
           }
@@ -398,7 +398,7 @@ aside.vh-aside {
           &:nth-of-type(3) {
             &>span {
               &>i {
-                background-color: var(--vh-import);
+                background-color: var(--mh-import);
               }
             }
           }
@@ -424,7 +424,7 @@ aside.vh-aside {
                 display: block;
                 width: 0;
                 height: 1px;
-                background-color: var(--vh-main-color);
+                background-color: var(--mh-main-color);
                 transition: width 0.58s cubic-bezier(.6, .1, 0, 1);
               }
             }
@@ -434,11 +434,11 @@ aside.vh-aside {
               width: 0.875rem;
               height: 0.875rem;
               border-radius: 0.18rem;
-              color: var(--vh-white-color);
+              color: var(--mh-white-color);
               text-align: center;
               font-size: 0.66rem;
               font-style: normal;
-              background-color: var(--vh-success);
+              background-color: var(--mh-success);
             }
 
             &>em {
@@ -446,12 +446,12 @@ aside.vh-aside {
               width: max-content;
               font-style: normal;
               font-size: 0.8125rem;
-              color: var(--vh-font-66);
+              color: var(--mh-font-66);
             }
           }
 
           &>time {
-            color: var(--vh-font-56);
+            color: var(--mh-font-56);
             font-size: 0.688rem;
           }
 
@@ -463,7 +463,7 @@ aside.vh-aside {
 
 
 @media screen and (max-width: 888px) {
-  aside.vh-aside {
+  aside.mh-aside {
     position: static;
     width: 100%;
   }

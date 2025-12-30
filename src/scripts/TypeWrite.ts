@@ -1,6 +1,6 @@
 import SITE_INFO from '@/config';
 export default () => {
-  const writeDom = document.querySelector('.vh-aside .type-desc');
+  const writeDom = document.querySelector('.mh-aside .type-desc');
   if (!writeDom) return;
   const TypeWriteList: any = SITE_INFO.TypeWriteList;
   if (!Array.isArray(TypeWriteList) || !TypeWriteList.length) return writeDom.remove();

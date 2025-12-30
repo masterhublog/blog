@@ -15,13 +15,13 @@ import "@/styles/ArticleBase.less";
 ---
 
 <Layout title={frontmatter.title || Title} description={Description} activeNav={frontmatter.type || "-"}>
-	<section class="vh-tools-main vh-animation vh-animation-init">
-		<header class="vh-page-header">
+	<section class="mh-tools-main mh-animation mh-animation-init">
+		<header class="mh-page-header">
 			<h1>{frontmatter.h1}</h1>
 			<p>{frontmatter.desc}</p>
 		</header>
 		<main><slot /></main>
-		<main class={`${frontmatter.type}-main main`}><section class="vh-space-loading"><span></span><span></span><span></span></section></main>
+		<main class={`${frontmatter.type}-main main`}><section class="mh-space-loading"><span></span><span></span><span></span></section></main>
 		{checkComment() && frontmatter.comment != false && <Comment />}
 	</section>
 </Layout>

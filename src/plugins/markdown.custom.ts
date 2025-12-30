@@ -26,7 +26,7 @@ const remarkNote = () => {
           Object.keys(node.attributes).forEach((i: any) => (hProperties[`data-${i}`] = node.attributes[i]));
         }
         // 设置 class
-        hProperties.class = `vh-node vh-${name}${attributes.type ? ` ${name}-${attributes.type}` : ''}`;
+        hProperties.class = `mh-node mh-${name}${attributes.type ? ` ${name}-${attributes.type}` : ''}`;
         // 文章字数统计
         const textOnPage = toString(tree);
         const readingTime = getReadingTime(textOnPage);
@@ -48,19 +48,19 @@ const addClassNames = () => {
         node.children = [{ type: 'element', tagName: 'span', children: node.children || [] }];
         // 处理 pre 标签
       } else if (node.tagName === 'pre') {
-        const divNode = { type: 'element', tagName: 'section', properties: { class: 'vh-code-box' }, children: [{ type: 'element', tagName: 'span', properties: { class: 'vh-code-copy' } }, node] };
+        const divNode = { type: 'element', tagName: 'section', properties: { class: 'mh-code-box' }, children: [{ type: 'element', tagName: 'span', properties: { class: 'mh-code-copy' } }, node] };
         // 替换父节点的 children 中的 pre 节点为新的 div 节点
         if (parent && index !== null) parent.children.splice(index, 1, divNode);
         // 处理 img 标签
       } else if (node.tagName === 'img') {
         // 添加 class 和 loading 属性
-        node.properties.class = 'vh-article-img';
-        node.properties['data-vh-lz-src'] = node.properties.src;
+        node.properties.class = 'mh-article-img';
+        node.properties['data-mh-lz-src'] = node.properties.src;
         node.properties.src = '/assets/images/lazy-loading.webp';
         // 处理 section 标签
       } else if (node.tagName === 'section') {
-        if (node.properties.class && node.properties.class.includes('vh-vhVideo')) {
-          node.children = [{ type: 'element', tagName: 'section', properties: { class: 'vh-space-loading' }, children: [{ type: 'element', tagName: 'span' }, { type: 'element', tagName: 'span' }, { type: 'element', tagName: 'span' }] }];
+        if (node.properties.class && node.properties.class.includes('mh-vhVideo')) {
+          node.children = [{ type: 'element', tagName: 'section', properties: { class: 'mh-space-loading' }, children: [{ type: 'element', tagName: 'span' }, { type: 'element', tagName: 'span' }, { type: 'element', tagName: 'span' }] }];
         }
       }
     });

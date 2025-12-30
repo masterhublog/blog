@@ -19,14 +19,14 @@
 
       &:hover {
         &::before {
-          color: var(--vh-main-color-88);
+          color: var(--mh-main-color-88);
         }
       }
 
       &::before {
         padding-right: 0.56rem;
         content: "#";
-        color: var(--vh-font-28);
+        color: var(--mh-font-28);
         transition: color 0.18s ease-in-out;
       }
     }
@@ -60,39 +60,39 @@
     // p标签样式
     // ul标签样式
     p,
-    ul:not(.vh-vhMusic ul, .vh-comment ul),
-    ol:not(.vh-vhMusic ol, .vh-comment ol) {
+    ul:not(.mh-vhMusic ul, .mh-comment ul),
+    ol:not(.mh-vhMusic ol, .mh-comment ol) {
       padding: 0.618rem 0;
       font-size: 0.9375rem;
       line-height: 1.6;
 
       li {
-        color: var(--vh-font-66);
+        color: var(--mh-font-66);
         font-size: 0.875rem;
         line-height: 1.6;
       }
 
       // 其下面的 a 标签样式
       a {
-        color: var(--vh-font-56);
-        box-shadow: inset 0 -.12rem var(--vh-main-color);
+        color: var(--mh-font-56);
+        box-shadow: inset 0 -.12rem var(--mh-main-color);
         transition: box-shadow .2s ease-in-out, color .2s ease-in-out;
 
         &:hover {
-          box-shadow: inset 0 -1.5rem var(--vh-main-color-28);
+          box-shadow: inset 0 -1.5rem var(--mh-main-color-28);
         }
       }
 
       // 其下面的code标签样式
       code {
-        background-color: var(--vh-font-16);
+        background-color: var(--mh-font-16);
         padding: .125rem .375rem;
         font-size: 0.8125rem;
       }
     }
 
-    ul:not(.vh-vhMusic ul, .vh-comment ul),
-    ol:not(.vh-vhMusic ol, .vh-comment ol) {
+    ul:not(.mh-vhMusic ul, .mh-comment ul),
+    ol:not(.mh-vhMusic ol, .mh-comment ol) {
       box-sizing: border-box;
       padding-left: 1.25rem;
       display: flex;
@@ -122,8 +122,8 @@
       // border-collapse: collapse;
       border-spacing: 0;
       font-size: 0.9rem;
-      background-color: var(--vh-white-color);
-      border: 1px solid var(--vh-font-16);
+      background-color: var(--mh-white-color);
+      border: 1px solid var(--mh-font-16);
       border-radius: 0.38rem;
       overflow: hidden;
 
@@ -141,10 +141,10 @@
       }
 
       th {
-        background-color: var(--vh-font-6);
+        background-color: var(--mh-font-6);
         padding: 0.75rem;
-        border-bottom: solid 1px var(--vh-font-16);
-        border-right: solid 1px var(--vh-font-16);
+        border-bottom: solid 1px var(--mh-font-16);
+        border-right: solid 1px var(--mh-font-16);
 
         &:nth-last-of-type(1) {
           border-right: none;
@@ -154,8 +154,8 @@
       td {
         padding: 0.618rem 0.75rem;
         vertical-align: top;
-        border-bottom: solid 1px var(--vh-font-16);
-        border-right: solid 1px var(--vh-font-16);
+        border-bottom: solid 1px var(--mh-font-16);
+        border-right: solid 1px var(--mh-font-16);
 
         &:nth-last-of-type(1) {
           border-right: none;
@@ -178,14 +178,14 @@
 
       // 其下面的code标签样式
       code {
-        background-color: var(--vh-font-16);
+        background-color: var(--mh-font-16);
         padding: .125rem .375rem;
         font-size: 0.8125rem;
       }
     }
 
     // 自定义组件样式
-    .vh-node {
+    .mh-node {
       margin: 0.618rem 0;
       box-sizing: border-box;
       width: 100%;
@@ -198,47 +198,47 @@
       }
 
       // :::note
-      &.vh-note {
+      &.mh-note {
         display: flex;
         flex-direction: column;
         gap: 0.688rem;
         padding: 0.888rem;
-        border-left: 5px solid var(--vh-font-28);
+        border-left: 5px solid var(--mh-font-28);
         border-radius: 3px;
-        background-color: var(--vh-font-6);
+        background-color: var(--mh-font-6);
 
         &.note-success {
-          border-color: var(--vh-success);
-          border-left: 5px solid var(--vh-success);
-          border-left-color: var(--vh-success);
-          background-color: var(--vh-success-hover);
+          border-color: var(--mh-success);
+          border-left: 5px solid var(--mh-success);
+          border-left-color: var(--mh-success);
+          background-color: var(--mh-success-hover);
         }
 
         &.note-info {
-          border-color: var(--vh-info);
-          border-left: 5px solid var(--vh-info);
-          border-left-color: var(--vh-info);
-          background-color: var(--vh-info-hover);
+          border-color: var(--mh-info);
+          border-left: 5px solid var(--mh-info);
+          border-left-color: var(--mh-info);
+          background-color: var(--mh-info-hover);
         }
 
         &.note-warning {
-          border-color: var(--vh-warning);
-          border-left: 5px solid var(--vh-warning);
-          border-left-color: var(--vh-warning);
-          background-color: var(--vh-warning-hover);
+          border-color: var(--mh-warning);
+          border-left: 5px solid var(--mh-warning);
+          border-left-color: var(--mh-warning);
+          background-color: var(--mh-warning-hover);
         }
 
         &.note-error {
-          border-color: var(--vh-error);
-          border-left: 5px solid var(--vh-error);
-          border-left-color: var(--vh-error);
-          background-color: var(--vh-error-hover);
+          border-color: var(--mh-error);
+          border-left: 5px solid var(--mh-error);
+          border-left-color: var(--mh-error);
+          background-color: var(--mh-error-hover);
         }
 
         &.note-import {
-          border-left: 5px solid var(--vh-import);
-          border-left-color: var(--vh-import);
-          background-color: var(--vh-import-hover);
+          border-left: 5px solid var(--mh-import);
+          border-left-color: var(--mh-import);
+          background-color: var(--mh-import-hover);
         }
 
         p {
@@ -249,7 +249,7 @@
       }
 
       // ::btn 
-      &.vh-btn {
+      &.mh-btn {
         position: relative;
         box-sizing: border-box;
         display: flex;
@@ -261,7 +261,7 @@
         height: 2.28rem;
         border: solid 1px #333;
         border-radius: 0.28rem;
-        background-color: var(--vh-white-color);
+        background-color: var(--mh-white-color);
         cursor: pointer;
         transition: background-color 0.18s ease-in-out;
         z-index: 1;
@@ -293,7 +293,7 @@
           top: 0;
           width: 0;
           height: 100%;
-          background-color: var(--vh-font-6);
+          background-color: var(--mh-font-6);
           transition: width 0.18s ease-in-out;
           z-index: -1;
         }
@@ -310,97 +310,97 @@
         }
 
         &.btn-success {
-          border-color: var(--vh-success);
+          border-color: var(--mh-success);
 
           &>span {
-            color: var(--vh-success);
+            color: var(--mh-success);
           }
 
           &::before {
-            background-color: var(--vh-success-hover);
+            background-color: var(--mh-success-hover);
           }
 
           &::after {
-            background-color: var(--vh-success);
+            background-color: var(--mh-success);
           }
         }
 
         &.btn-info {
-          border-color: var(--vh-info);
+          border-color: var(--mh-info);
 
           &>span {
-            color: var(--vh-info);
+            color: var(--mh-info);
           }
 
           &::before {
-            background-color: var(--vh-info-hover);
+            background-color: var(--mh-info-hover);
           }
 
           &::after {
-            background-color: var(--vh-info);
+            background-color: var(--mh-info);
           }
         }
 
         &.btn-warning {
-          border-color: var(--vh-warning);
+          border-color: var(--mh-warning);
 
           &>span {
-            color: var(--vh-warning);
+            color: var(--mh-warning);
           }
 
           &::before {
-            background-color: var(--vh-warning-hover);
+            background-color: var(--mh-warning-hover);
           }
 
           &::after {
-            background-color: var(--vh-warning);
+            background-color: var(--mh-warning);
           }
         }
 
         &.btn-error {
-          border-color: var(--vh-error);
+          border-color: var(--mh-error);
 
           &>span {
-            color: var(--vh-error);
+            color: var(--mh-error);
           }
 
           &::before {
-            background-color: var(--vh-error-hover);
+            background-color: var(--mh-error-hover);
           }
 
           &::after {
-            background-color: var(--vh-error);
+            background-color: var(--mh-error);
           }
         }
 
         &.btn-import {
-          border-color: var(--vh-import);
+          border-color: var(--mh-import);
 
           &>span {
-            color: var(--vh-import);
+            color: var(--mh-import);
           }
 
           &::before {
-            background-color: var(--vh-import-hover);
+            background-color: var(--mh-import-hover);
           }
 
           &::after {
-            background-color: var(--vh-import);
+            background-color: var(--mh-import);
           }
         }
       }
 
       // :::picture 
-      &.vh-picture {
+      &.mh-picture {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
         gap: .36rem;
 
         // 其下面的图片
-        &>img.vh-article-img {
+        &>img.mh-article-img {
           width: 100%;
           aspect-ratio: 3 / 2;
-          border: solid 1px var(--vh-font-16);
+          border: solid 1px var(--mh-font-16);
           border-radius: 5px;
           object-fit: cover;
           overflow: hidden;
@@ -408,20 +408,20 @@
       }
 
       // ::vhVideo
-      &.vh-vhVideo {
+      &.mh-vhVideo {
         margin: 1.188rem 0;
         box-sizing: border-box;
         display: flex;
         align-items: center;
         width: 100%;
         aspect-ratio: 16 / 9;
-        border: solid 1px var(--vh-font-16);
+        border: solid 1px var(--mh-font-16);
         border-radius: 5px;
         overflow: hidden;
       }
 
       // ::vhMusic
-      &.vh-vhMusic {
+      &.mh-vhMusic {
         margin: 1.188rem 0;
         width: 100%;
         height: max-content;
@@ -458,13 +458,13 @@
       }
 
       // ::vhLivePhoto
-      &.vh-vhLivePhoto {
+      &.mh-vhLivePhoto {
         box-sizing: border-box;
         display: flex;
         justify-content: center;
         width: 100%;
         aspect-ratio: 16 / 9;
-        background: var(--vh-white-color) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='8' height='8' fill='none' stroke='rgb(0 0 0 / 0.1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+        background: var(--mh-white-color) url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='8' height='8' fill='none' stroke='rgb(0 0 0 / 0.1)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
 
         &.vhLivePhoto-y {
           aspect-ratio: 9 / 16;
@@ -487,13 +487,13 @@
     }
 
     // 页面图片样式
-    img.vh-article-img {
+    img.mh-article-img {
       box-sizing: border-box;
       padding: .36rem;
       width: max-content;
       max-width: 100%;
       max-height: 36rem;
-      border: solid 1px var(--vh-font-16);
+      border: solid 1px var(--mh-font-16);
       border-radius: 5px;
       cursor: zoom-in;
       cursor: -moz-zoom-in;
@@ -505,11 +505,11 @@
     }
 
     // 文章内代码块
-    section.vh-code-box {
+    section.mh-code-box {
       margin: 1.188rem 0;
       position: relative;
 
-      &>span.vh-code-copy {
+      &>span.mh-code-copy {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -543,7 +543,7 @@
         }
 
         &::after {
-          background: var(--vh-success) url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22m389-377.13%20294.7-294.7q12.58-12.67%2029.52-12.67%2016.93%200%2029.61%2012.67%2012.67%2012.68%2012.67%2029.53%200%2016.86-12.28%2029.14L419.07-288.41q-12.59%2012.67-29.52%2012.67-16.94%200-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77%2012.55-29.45%2012.68-12.67%2029.62-12.67%2016.93%200%2029.28%2012.67L389-377.13Z%22%2F%3E%3C%2Fsvg%3E') no-repeat center center;
+          background: var(--mh-success) url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%20-960%20960%20960%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22m389-377.13%20294.7-294.7q12.58-12.67%2029.52-12.67%2016.93%200%2029.61%2012.67%2012.67%2012.68%2012.67%2029.53%200%2016.86-12.28%2029.14L419.07-288.41q-12.59%2012.67-29.52%2012.67-16.94%200-29.62-12.67L217.41-430.93q-12.67-12.68-12.79-29.45-.12-16.77%2012.55-29.45%2012.68-12.67%2029.62-12.67%2016.93%200%2029.28%2012.67L389-377.13Z%22%2F%3E%3C%2Fsvg%3E') no-repeat center center;
           background-size: 1.16rem 1.16rem;
         }
 

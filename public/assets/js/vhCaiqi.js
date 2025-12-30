@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function initializeButton() {
-      const elements = document.querySelectorAll('.vh-aside-item.user');
+      const elements = document.querySelectorAll('.mh-aside-item.user');
       elements.forEach(el => {
         el.addEventListener('mouseenter', restartConfetti);
         el.addEventListener('mouseleave', deactivateConfetti);
@@ -178,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 公共接口
     return {
       init: () => {
-        if (!document.querySelector('.vh-aside-item.user > canvas')) return;
-        setGlobals(".vh-aside-item.user > canvas");
+        if (!document.querySelector('.mh-aside-item.user > canvas')) return;
+        setGlobals(".mh-aside-item.user > canvas");
         initializeButton();
         window.addEventListener('resize', handleResize);
       }

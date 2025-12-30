@@ -5,7 +5,7 @@ const { articleList } = Astro.props;
 import "./Archive.less";
 ---
 
-<section class="vh-archive-main vh-animation vh-animation-init">
+<section class="mh-archive-main mh-animation mh-animation-init">
 	<div class="archive-list">
 		{
 			articleList.map((i: any) => (
@@ -19,8 +19,8 @@ import "./Archive.less";
 						<a href={`/article/${_.id}`}>
 							<em>{fmtTime(_.date, "MM-DD")}</em>
 							<i />
-							<span class="vh-ellipsis">{_.title}</span>
-							<cite class="vh-ellipsis">{_.tags.map((tag: string) => `#${tag}`).join(" ")}</cite>
+							<span class="mh-ellipsis">{_.title}</span>
+							<cite class="mh-ellipsis">{_.tags.map((tag: string) => `#${tag}`).join(" ")}</cite>
 						</a>
 					))}
 				</div>

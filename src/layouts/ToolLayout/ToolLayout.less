@@ -1,18 +1,18 @@
   // 说说页评论
-  .vh-tools-main {
+  .mh-tools-main {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
 
-    .vh-node {
+    .mh-node {
       margin: -0.58rem 0 !important;
     }
 
-    &>.vh-page-header {
+    &>.mh-page-header {
       box-sizing: border-box;
       padding: 1rem;
-      background-color: var(--vh-white-color);
-      box-shadow: var(--vh-box-shadow);
+      background-color: var(--mh-white-color);
+      box-shadow: var(--mh-box-shadow);
       border-radius: 0.5rem;
 
       h1,
@@ -35,7 +35,7 @@
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 1rem;
-          background-color: var(--vh-white-color);
+          background-color: var(--mh-white-color);
 
           &>a {
             position: relative;
@@ -52,12 +52,12 @@
             z-index: 1;
 
             &:hover {
-              background-color: var(--vh-font-16);
+              background-color: var(--mh-font-16);
 
               &>.avatar {
                 transform: scale(1.2) rotate(8deg);
-                background-color: var(--vh-white-color);
-                border-color: var(--vh-white-color);
+                background-color: var(--mh-white-color);
+                border-color: var(--mh-white-color);
               }
             }
 
@@ -68,7 +68,7 @@
               width: 3.36rem;
               height: 3.36rem;
               border-radius: 50%;
-              border: solid 1px var(--vh-font-16);
+              border: solid 1px var(--mh-font-16);
               overflow: hidden;
               opacity: 1;
               transition: all .18s;
@@ -97,7 +97,7 @@
                 width: 100%;
                 height: max-content;
                 font-size: 0.81rem;
-                color: var(--vh-font-56);
+                color: var(--mh-font-56);
                 line-height: 1rem;
               }
             }
@@ -110,8 +110,8 @@
           flex-direction: column;
           gap: 1.25rem;
 
-          &>.vh-space-loading {
-            background-color: var(--vh-white-color);
+          &>.mh-space-loading {
+            background-color: var(--mh-white-color);
           }
 
           &>article {
@@ -120,8 +120,8 @@
             width: 100%;
             height: max-content;
             border-radius: 0.5rem;
-            box-shadow: var(--vh-box-shadow);
-            background: var(--vh-white-color) linear-gradient(90deg, var(--vh-font-6), var(--vh-white-color)) no-repeat 100% 100% / 0 1px;
+            box-shadow: var(--mh-box-shadow);
+            background: var(--mh-white-color) linear-gradient(90deg, var(--mh-font-6), var(--mh-white-color)) no-repeat 100% 100% / 0 1px;
             background-position: 0 100%;
             background-size: 0 100%;
             transition: .7s cubic-bezier(.6, .1, 0, 1), background-position 0s;
@@ -151,7 +151,7 @@
 
               &>p {
                 padding: 0;
-                color: var(--vh-font-66);
+                color: var(--mh-font-66);
                 font-size: 0.875rem;
                 line-height: 1.8;
               }
@@ -186,9 +186,9 @@
                     width: 1.88rem;
                     height: 1.88rem;
                     object-fit: cover;
-                    border: 1px solid var(--vh-font-16);
+                    border: 1px solid var(--mh-font-16);
                     border-radius: 50%;
-                    background-color: var(--vh-white-color);
+                    background-color: var(--mh-white-color);
                     overflow: hidden;
                   }
                 }
@@ -201,7 +201,7 @@
                   flex-shrink: 0;
                   width: max-content;
                   padding: 0.28rem 0.5rem;
-                  background: var(--vh-font-6);
+                  background: var(--mh-font-6);
                   border-radius: 0.8rem;
                 }
               }
@@ -215,8 +215,8 @@
           flex-direction: column;
           gap: 1.25rem;
 
-          &>.vh-space-loading {
-            background-color: var(--vh-white-color);
+          &>.mh-space-loading {
+            background-color: var(--mh-white-color);
           }
 
           &>article {
@@ -227,8 +227,8 @@
             width: 100%;
             height: max-content;
             border-radius: 0.5rem;
-            background-color: var(--vh-white-color);
-            box-shadow: var(--vh-box-shadow);
+            background-color: var(--mh-white-color);
+            box-shadow: var(--mh-box-shadow);
             overflow: hidden;
 
             &>header {
@@ -260,7 +260,7 @@
 
                 &>time {
                   font-size: 0.7rem;
-                  color: var(--vh-font-66);
+                  color: var(--mh-font-66);
                 }
               }
             }
@@ -284,7 +284,7 @@
                 cursor: -webkit-zoom-in;
               }
 
-              &>.vh-img-flex {
+              &>.mh-img-flex {
                 box-sizing: border-box;
                 padding: 0.8rem 0;
                 display: grid;
@@ -309,7 +309,7 @@
                 gap: 0.2rem;
                 font-style: normal;
                 font-size: 14px;
-                color: var(--vh-success);
+                color: var(--mh-success);
 
                 &::before {
                   content: '';
@@ -335,11 +335,11 @@
                 align-items: center;
                 height: 1.68rem;
                 width: max-content;
-                border: 1px solid var(--vh-main-color);
-                border-radius: var(--vh-main-radius);
-                background-color: var(--vh-white-color);
+                border: 1px solid var(--mh-main-color);
+                border-radius: var(--mh-main-radius);
+                background-color: var(--mh-white-color);
                 font-size: 0.72rem;
-                color: var(--vh-main-color);
+                color: var(--mh-main-color);
                 transition: all .2s ease-in-out;
                 user-select: none;
                 cursor: pointer;
@@ -363,7 +363,7 @@
 
 
   @media screen and (max-width: 1088px) {
-    .vh-tools-main {
+    .mh-tools-main {
       &>main {
         &.main {
 
@@ -378,7 +378,7 @@
               padding: 1.06rem 0.88rem;
 
               &>.main {
-                &>.vh-img-flex {
+                &>.mh-img-flex {
                   grid-template-columns: repeat(auto-fit, minmax(46%, 1fr));
                 }
               }
@@ -390,7 +390,7 @@
   }
 
   @media screen and (max-width: 568px) {
-    .vh-tools-main {
+    .mh-tools-main {
       &>main {
         &.main {
           &.links-main {

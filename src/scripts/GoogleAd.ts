@@ -8,8 +8,8 @@ declare global {
 import SITE_INFO from '@/config'
 const { GoogleAds } = SITE_INFO
 export default () => {
-  const asideAD: any = document.querySelector('.vh-aside-ad')
-  const articleAD: any = document.querySelector('.vh-article-ad')
+  const asideAD: any = document.querySelector('.mh-aside-ad')
+  const articleAD: any = document.querySelector('.mh-article-ad')
   if (!asideAD && !articleAD) return;
   // 初始化侧边栏广告
   if (asideAD) {

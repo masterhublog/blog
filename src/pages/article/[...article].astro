@@ -50,7 +50,7 @@ import CardTableOfContents from "@/components/TOC/CardTableOfContents.astro";
   headings={headings}
   hastoc={true}
 >
-  <article class="vh-article-main vh-animation vh-animation-init">
+  <article class="mh-article-main mh-animation mh-animation-init">
     <header>
       <h1>{post.data.title}</h1>
       <div class="article-meta">
@@ -150,7 +150,7 @@ import CardTableOfContents from "@/components/TOC/CardTableOfContents.astro";
       {
         GoogleAds.ad_Client && GoogleAds.articleAD_Slot && (
           <GoogleAd
-            className="vh-article-ad"
+            className="mh-article-ad"
             slotID={GoogleAds.articleAD_Slot}
           />
         )

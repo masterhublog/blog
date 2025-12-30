@@ -38,15 +38,15 @@ export default {
   Theme: {
     // 颜色请用 16 进制颜色码
     // 主题颜色
-    "--vh-main-color": "#01C4B6",
+    "--mh-main-color": "#01C4B6",
     // 字体颜色
-    "--vh-font-color": "#34495e",
+    "--mh-font-color": "#34495e",
     // 侧边栏宽度
-    "--vh-aside-width": "318px",
+    "--mh-aside-width": "318px",
     // 全局圆角
-    "--vh-main-radius": "0.88rem",
+    "--mh-main-radius": "0.88rem",
     // 主体内容宽度
-    "--vh-main-max-width": "1458px",
+    "--mh-main-max-width": "1458px",
   },
   // 导航栏 (新窗口打开 newWindow: true)
   Navs: [
@@ -86,12 +86,12 @@ export default {
     'https://i0.wp.com',
     'https://cn.cravatar.com',
     'https://analytics.masterhu.com.cn',
-    'https://vh-api.4ce.cn',
+    'https://mh-api.4ce.cn',
     'https://registry.npmmirror.com',
     'https://pagead2.googlesyndication.com'
   ],
   // 博客音乐组件解析接口
-  vhMusicApi: 'https://vh-api.4ce.cn/blog/meting',
+  vhMusicApi: 'https://mh-api.4ce.cn/blog/meting',
   // 评论组件（只允许同时开启一个）
   Comment: {
     // Twikoo 评论

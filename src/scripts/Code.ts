@@ -5,11 +5,11 @@ import "overlayscrollbars/overlayscrollbars.css";
 import { OverlayScrollbars } from "overlayscrollbars";
 export default () => {
   // Pre 滚动条======
-  document.querySelectorAll("section.vh-code-box>pre.astro-code").forEach((i: any) => {
+  document.querySelectorAll("section.mh-code-box>pre.astro-code").forEach((i: any) => {
     OverlayScrollbars(i, { scrollbars: { autoHide: "leave", autoHideDelay: 500, autoHideSuspend: false } });
   });
   // Pre Code 代码复制功能======
-  document.querySelectorAll("section.vh-code-box>span.vh-code-copy").forEach((i: any) => {
+  document.querySelectorAll("section.mh-code-box>span.mh-code-copy").forEach((i: any) => {
     i.vhTimer = null;
     i.addEventListener("click", async () => {
       if (i.vhTimer) clearTimeout(i.vhTimer);

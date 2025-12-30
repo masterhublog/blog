@@ -10,14 +10,14 @@ const ARTICLE_COVER: string = await getCover(post.data.cover);
 import "./ArticleCard.less";
 ---
 
-<article class={`vh-article-item vh-animation vh-animation-init vh-article-link${post.data.top ? " active" : ""}`}>
-	<section class="vh-article-banner"><img src="/assets/images/lazy-loading.webp" data-vh-lz-src={ARTICLE_COVER} alt={post.data.title} /></section>
+<article class={`mh-article-item mh-animation mh-animation-init mh-article-link${post.data.top ? " active" : ""}`}>
+	<section class="mh-article-banner"><img src="/assets/images/lazy-loading.webp" data-mh-lz-src={ARTICLE_COVER} alt={post.data.title} /></section>
 	<header>
-		<h3><a class={`vh-article-cat vh-cat-${post.data.categories}`} href={`/categories/${post.data.categories}`}>{post.data.categories}</a><time>{fmtTime(post.data.date)}</time></h3>
-		<h1 class="title"><a class="vh-ellipsis" href={`/article/${post.data.id}`}>{post.data.title}</a></h1>
+		<h3><a class={`mh-article-cat mh-cat-${post.data.categories}`} href={`/categories/${post.data.categories}`}>{post.data.categories}</a><time>{fmtTime(post.data.date)}</time></h3>
+		<h1 class="title"><a class="mh-ellipsis" href={`/article/${post.data.id}`}>{post.data.title}</a></h1>
 	</header>
-	<h2 class="vh-article-excerpt vh-ellipsis line-2">{description}</h2>
-	<h4 class="vh-article-taglist vh-ellipsis">
+	<h2 class="mh-article-excerpt mh-ellipsis line-2">{description}</h2>
+	<h4 class="mh-article-taglist mh-ellipsis">
 		{post.data.tags.map((tag: string) => <a href={`/tag/${tag}`}>{tag}</a>)}
 	</h4>
 </article>

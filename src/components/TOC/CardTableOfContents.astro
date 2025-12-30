@@ -143,7 +143,7 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 
     if (_toc.length === 0) {
       const aside = document.querySelector('.aside-toc') as HTMLElement | null;
-      if (aside) aside.classList.add('vh-toc-hidden');
+      if (aside) aside.classList.add('mh-toc-hidden');
       console.warn('[TOC] No headings found after retries; hiding TOC.');
       return;
     }
@@ -210,17 +210,17 @@ const grouppedHeadings = headings.reduce((array, heading) => {
   // Hide TOC on route start and re-init on page view (swup hooks)
   const hideToc = () => {
     const aside = document.querySelector('.aside-toc') as HTMLElement | null;
-    if (aside) aside.classList.add('vh-toc-hidden');
+    if (aside) aside.classList.add('mh-toc-hidden');
     console.log('[TOC] hideToc called');
   };
   const showToc = () => {
     const aside = document.querySelector('.aside-toc') as HTMLElement | null;
-    if (aside) aside.classList.remove('vh-toc-hidden');
+    if (aside) aside.classList.remove('mh-toc-hidden');
     console.log('[TOC] showToc called');
     setTimeout(() => {
       initToc();
       setTimeout(() => {
-        if (_toc.length === 0 && aside) aside.classList.add('vh-toc-hidden');
+        if (_toc.length === 0 && aside) aside.classList.add('mh-toc-hidden');
       }, 400);
     }, 260);
   };
@@ -269,9 +269,9 @@ const grouppedHeadings = headings.reduce((array, heading) => {
 
 <style is:global>
   .card-toc a.active {
-    color: var(--vh-white-color);
-    background: linear-gradient(90deg, var(--vh-main-color), var(--vh-main-color-66));
-    box-shadow: var(--vh-box-shadow);
+    color: var(--mh-white-color);
+    background: linear-gradient(90deg, var(--mh-main-color), var(--mh-main-color-66));
+    box-shadow: var(--mh-box-shadow);
     border-radius: 0.4rem;
   }
   .card-toc a.active::before { background: rgba(255,255,255,0.9); }

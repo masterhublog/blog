@@ -15,7 +15,7 @@
     height: max-content;
     overflow: hidden;
 
-    &>.vh-article-item {
+    &>.mh-article-item {
       position: relative;
       box-sizing: border-box;
       display: flex;
@@ -29,7 +29,7 @@
       overflow: hidden;
 
       &:hover {
-        &>.vh-article-banner {
+        &>.mh-article-banner {
           &>img {
             transform: scale(1.08);
           }
@@ -60,7 +60,7 @@
           /* 兼容旧版浏览器 */
         }
 
-        &>.vh-article-banner {
+        &>.mh-article-banner {
           &::before {
             content: '';
             position: absolute;
@@ -76,7 +76,7 @@
       }
 
 
-      &>.vh-article-banner {
+      &>.mh-article-banner {
         flex-shrink: 0;
         position: relative;
         box-sizing: border-box;
@@ -107,7 +107,7 @@
           width: 100%;
           height: max-content;
 
-          &>.vh-article-cat {
+            &>.mh-article-cat {
             flex-shrink: 0;
             box-sizing: border-box;
             width: max-content;
@@ -125,7 +125,7 @@
             -webkit-text-fill-color: transparent;
             color: transparent;
 
-            &.vh-cat-Code {
+            &.mh-cat-Code {
               /* 默认渐变色起始 */
               --gradient-color-1: #f48600;
               /* 默认渐变色中间 */
@@ -134,7 +134,7 @@
               --gradient-color-3: #ffe9c9;
             }
 
-            &.vh-cat-Daily {
+            &.mh-cat-Daily {
               /* 默认渐变色起始 */
               --gradient-color-1: #6270ee;
               /* 默认渐变色中间 */
@@ -143,7 +143,7 @@
               --gradient-color-3: #37dede;
             }
 
-            &.vh-cat-Software {
+            &.mh-cat-Software {
               /* 默认渐变色起始 */
               --gradient-color-1: #006633;
               /* 默认渐变色中间 */
@@ -152,7 +152,7 @@
               --gradient-color-3: #66ff99;
             }
 
-            &.vh-cat-Share {
+            &.mh-cat-Share {
               /* 默认渐变色起始 */
               --gradient-color-1: rgb(240, 45, 133);
               /* 默认渐变色中间 */
@@ -167,7 +167,7 @@
             margin-top: auto;
             font-size: 0.805rem;
             font-weight: 400;
-            color: var(--vh-font-color);
+            color: var(--mh-font-color);
             width: max-content;
           }
         }
@@ -184,18 +184,18 @@
             transition: color 0.18s;
 
             &:hover {
-              color: var(--vh-main-color);
+              color: var(--mh-main-color);
             }
           }
         }
       }
 
-      &>.vh-article-excerpt {
+      &>.mh-article-excerpt {
         box-sizing: border-box;
         padding: 0 1.166rem;
         width: 100%;
         height: max-content;
-        color: var(--vh-font-66);
+        color: var(--mh-font-66);
         font-size: 0.805rem;
         font-weight: 400;
         letter-spacing: 0.88px;
@@ -203,7 +203,7 @@
       }
 
 
-      &>.vh-article-taglist {
+      &>.mh-article-taglist {
         margin-top: auto;
         box-sizing: border-box;
         padding: 0.66rem 1.166rem 1rem;
@@ -214,13 +214,13 @@
         &>a {
           box-sizing: border-box;
           margin-right: 0.88rem;
-          color: var(--vh-font);
+          color: var(--mh-font);
           font-size: 0.688rem;
           font-weight: 400;
           transition: color 0.18s;
 
           &:hover {
-            color: var(--vh-main-color);
+            color: var(--mh-main-color);
           }
 
           &::before {
@@ -234,7 +234,7 @@
       }
     }
 
-    &>.vh-article-pagination {
+    &>.mh-article-pagination {
       position: absolute;
       bottom: 0;
       right: 0;

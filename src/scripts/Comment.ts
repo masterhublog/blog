@@ -16,16 +16,16 @@ const TwikooFn = async (commentDOM: string) => {
   if (!el) return;
   // 必要配置检查
   if (!SITE_INFO.Comment.Twikoo.envId) {
-    (el as HTMLElement).innerHTML = '<div class="vh-comment-error">Twikoo 未配置 envId，请在站点配置中设置。</div>';
+    (el as HTMLElement).innerHTML = '<div class="mh-comment-error">Twikoo 未配置 envId，请在站点配置中设置。</div>'; 
     return;
   }
-  (el as HTMLElement).innerHTML = '<section class="vh-space-loading"><span></span><span></span><span></span></section>'
+  (el as HTMLElement).innerHTML = '<section class="mh-space-loading"><span></span><span></span><span></span></section>'
   try {
     await LoadScript("https://registry.npmmirror.com/twikoo/1.6.41/files/dist/twikoo.all.min.js");
-    twikoo.init({ envId: SITE_INFO.Comment.Twikoo.envId, el: commentDOM, onCommentLoaded: () => setTimeout(() => document.querySelectorAll('.vh-comment a[href="#"]').forEach(link => link.removeAttribute('href'))) })
+    twikoo.init({ envId: SITE_INFO.Comment.Twikoo.envId, el: commentDOM, onCommentLoaded: () => setTimeout(() => document.querySelectorAll('.mh-comment a[href="#"]').forEach(link => link.removeAttribute('href'))) })
   } catch (err) {
     console.error('[TwikooFn] 脚本加载失败', err);
-    (el as HTMLElement).innerHTML = '<div class="vh-comment-error">评论脚本加载失败，请检查网络或 CDN 设置。</div>';
+    (el as HTMLElement).innerHTML = '<div class="mh-comment-error">评论脚本加载失败，请检查网络或 CDN 设置。</div>'; 
   }
 }
 
@@ -34,7 +34,7 @@ const WalineFn = async (commentDOM: string, walineContainer: any) => {
   const el = document.querySelector(commentDOM);
   if (!el) return null;
   if (!SITE_INFO.Comment.Waline.serverURL) {
-    (el as HTMLElement).innerHTML = '<div class="vh-comment-error">Waline 未配置 serverURL，请在站点配置中设置。</div>';
+    (el as HTMLElement).innerHTML = '<div class="mh-comment-error">Waline 未配置 serverURL，请在站点配置中设置。</div>'; 
     return null;
   }
   await import('@waline/client/waline.css');
@@ -74,7 +74,7 @@ const checkComment = () => {
 // 初始化评论插件
 const commentInit = async (key: string, walineContainer: any) => {
   // 评论 DOM 
-  const commentDOM = '.vh-comment>section'
+  const commentDOM = '.mh-comment>section' 
   const targetEl = document.querySelector(commentDOM);
   if (!targetEl) return;
   // 评论列表
@@ -87,7 +87,7 @@ const commentInit = async (key: string, walineContainer: any) => {
     }
   } catch (err) {
     console.error('[commentInit] 评论初始化失败', err);
-    (targetEl as HTMLElement).innerHTML = '<div class="vh-comment-error">评论加载失败，请稍后再试。</div>';
+    (targetEl as HTMLElement).innerHTML = '<div class="mh-comment-error">评论加载失败，请稍后再试。</div>'; 
   }
 }
 

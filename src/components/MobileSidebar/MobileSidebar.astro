@@ -7,13 +7,13 @@ import Svg from "@/components/Svg/Svg.astro";
 import "./MobileSidebar.less";
 ---
 
-<nav class="vh-mobilesidebar">
+<nav class="mh-mobilesidebar">
 	<section class="main">
-		<div class="vh-mobilesidebar-list user-panel">
+		<div class="mh-mobilesidebar-list user-panel">
 			<h3>{Title}</h3>
 		</div>
 
-		<div class="vh-mobilesidebar-list vh-link-list">
+		<div class="mh-mobilesidebar-list mh-link-list">
 			{
 				Navs.map(i => (
 					<a class={i.link.replace("/", "")} href={i.link} target={i.target ? "_blank" : "_self"}>

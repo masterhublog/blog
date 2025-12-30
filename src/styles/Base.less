@@ -2,46 +2,46 @@
 
 :root {
 	// 白色颜色
-	--vh-white-color: #fff;
+	--mh-white-color: #fff;
 	// BoxShadow
-	--vh-box-shadow: 0 3px 8px 6px #07111b0d;
+	--mh-box-shadow: 0 3px 8px 6px #07111b0d;
 	// Body 背景颜色
-	--vh-body-bg: #F8F8F8;
+	--mh-body-bg: #F8F8F8;
 	// Back Top 按钮位置
-	--vh-back-top: calc((calc(100vw - 2rem) - min((100vw - 2rem), var(--vh-main-max-width))) / 2 + 1rem);
+	--mh-back-top: calc((calc(100vw - 2rem) - min((100vw - 2rem), var(--mh-main-max-width))) / 2 + 1rem);
 	// 字体颜色
-	--vh-font-88: rgb(from var(--vh-font-color) r g b / 88%);
-	--vh-font-66: rgb(from var(--vh-font-color) r g b / 66%);
-	--vh-font-56: rgb(from var(--vh-font-color) r g b / 56%);
-	--vh-font-28: rgb(from var(--vh-font-color) r g b / 28%);
-	--vh-font-16: rgb(from var(--vh-font-color) r g b / 16%);
-	--vh-font-6: rgb(from var(--vh-font-color) r g b / 6%);
+	--mh-font-88: rgb(from var(--mh-font-color) r g b / 88%);
+	--mh-font-66: rgb(from var(--mh-font-color) r g b / 66%);
+	--mh-font-56: rgb(from var(--mh-font-color) r g b / 56%);
+	--mh-font-28: rgb(from var(--mh-font-color) r g b / 28%);
+	--mh-font-16: rgb(from var(--mh-font-color) r g b / 16%);
+	--mh-font-6: rgb(from var(--mh-font-color) r g b / 6%);
 	// 主题色
-	--vh-main-color-88: rgb(from var(--vh-main-color) r g b / 88%);
-	--vh-main-color-66: rgb(from var(--vh-main-color) r g b / 66%);
-	--vh-main-color-56: rgb(from var(--vh-main-color) r g b / 56%);
-	--vh-main-color-28: rgb(from var(--vh-main-color) r g b / 28%);
-	--vh-main-color-16: rgb(from var(--vh-main-color) r g b / 16%);
-	--vh-main-color-6: rgb(from var(--vh-main-color) r g b / 6%);
+	--mh-main-color-88: rgb(from var(--mh-main-color) r g b / 88%);
+	--mh-main-color-66: rgb(from var(--mh-main-color) r g b / 66%);
+	--mh-main-color-56: rgb(from var(--mh-main-color) r g b / 56%);
+	--mh-main-color-28: rgb(from var(--mh-main-color) r g b / 28%);
+	--mh-main-color-16: rgb(from var(--mh-main-color) r g b / 16%);
+	--mh-main-color-6: rgb(from var(--mh-main-color) r g b / 6%);
 
 	// Default 
-	--vh-default: #BEC4CC;
-	--vh-default-hover: #BEC4CC18;
+	--mh-default: #BEC4CC;
+	--mh-default-hover: #BEC4CC18;
 	// Info 
-	--vh-info: #3253b4;
-	--vh-info-hover: #3253b418;
+	--mh-info: #3253b4;
+	--mh-info-hover: #3253b418;
 	// Success
-	--vh-success: #01C4B6;
-	--vh-success-hover: #01C4B618;
+	--mh-success: #01C4B6;
+	--mh-success-hover: #01C4B618;
 	// Warning
-	--vh-warning: #DD8636;
-	--vh-warning-hover: #DD863618;
+	--mh-warning: #DD8636;
+	--mh-warning-hover: #DD863618;
 	// Error
-	--vh-error: #DE3C3D;
-	--vh-error-hover: #DE3C3D18;
+	--mh-error: #DE3C3D;
+	--mh-error-hover: #DE3C3D18;
 	// Import
-	--vh-import: #B984DF;
-	--vh-import-hover: #B984DF18;
+	--mh-import: #B984DF;
+	--mh-import-hover: #B984DF18;
 }
 
 * {
@@ -65,7 +65,7 @@
 ::selection,
 ::-webkit-selection {
 	color: #fff;
-	background: var(--vh-main-color-88);
+	background: var(--mh-main-color-88);
 }
 
 html {
@@ -81,7 +81,7 @@ html {
 		flex-direction: column;
 		width: 100vw;
 		height: max-content;
-		color: var(--vh-font-color);
+		color: var(--mh-font-color);
 		font-family: 'HarmonyOS Sans SC', serif;
 		font-weight: 400;
 		cursor: url('/assets/images/default.cur'), default;
@@ -95,7 +95,7 @@ html {
 			width: 100vw;
 			height: 100vh;
 			/* 使用 home banner 作为首选背景，回退为 body bg */
-			background: var(--vh-home-banner, var(--vh-body-bg, #F8F8F8));
+			background: var(--mh-home-banner, var(--mh-body-bg, #F8F8F8));
 			background-repeat: no-repeat;
 			background-position: center 60%;
 			background-size: cover;
@@ -125,10 +125,10 @@ code {
 }
 
 a {
-	color: var(--vh-font-color);
+	color: var(--mh-font-color);
 }
 
-img[data-vh-lz-src] {
+img[data-mh-lz-src] {
 	transition: all 0.18s ease-in;
 
 	&:not(.loaded) {
@@ -139,13 +139,13 @@ img[data-vh-lz-src] {
 
 // ===================================================================== Other 
 // 悬浮背景 a 标签
-.vh-hover {
+.mh-hover {
 	position: relative;
 	transition: all 0.18s ease-in-out;
 
 	&:hover,
 	&.active {
-		color: var(--vh-white-color) !important;
+		color: var(--mh-white-color) !important;
 
 		&::before {
 			transform: scale(1.2);
@@ -161,7 +161,7 @@ img[data-vh-lz-src] {
 		width: 100%;
 		height: 100%;
 		border-radius: .5rem;
-		background-color: var(--vh-main-color-88);
+		background-color: var(--mh-main-color-88);
 		opacity: 0;
 		z-index: -1;
 		transition: all 0.18s ease-in-out;
@@ -169,7 +169,7 @@ img[data-vh-lz-src] {
 }
 
 // 超出一行省略
-.vh-ellipsis {
+.mh-ellipsis {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
@@ -208,7 +208,7 @@ img[data-vh-lz-src] {
 // 设置图片懒加载样式
 .main-inner>.main-inner-content,
 .avatar {
-	img[data-vh-lz-src] {
+	img[data-mh-lz-src] {
 		transition: all 0.18s ease-in;
 
 		&:not(.loaded) {
@@ -218,9 +218,9 @@ img[data-vh-lz-src] {
 }
 
 // 首次加载效果
-.vh-animation.vh-animation-init {
+.mh-animation.mh-animation-init {
 	opacity: 0;
-	animation: 300ms vh-init-show;
+	animation: 300ms mh-init-show;
 	animation-fill-mode: forwards;
 	transition: opacity 0.18s ease-in-out, transform 0.18s ease-in-out;
 }
@@ -228,8 +228,8 @@ img[data-vh-lz-src] {
 // swup 动画效果
 html.swup-enabled,
 html.is-changing {
-	.vh-animation {
-		&.vh-animation-init {
+	.mh-animation {
+		&.mh-animation-init {
 			transform: translateY(0);
 			opacity: 1;
 			animation: none;
@@ -238,8 +238,8 @@ html.is-changing {
 }
 
 html.is-animating {
-	.vh-animation {
-		&.vh-animation-init {
+	.mh-animation {
+		&.mh-animation-init {
 			transform: translateY(0.88rem);
 			opacity: 0;
 		}
@@ -247,7 +247,7 @@ html.is-animating {
 }
 
 // 占位加载
-.vh-space-loading {
+.mh-space-loading {
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;
@@ -267,24 +267,24 @@ html.is-animating {
 
 		&:nth-of-type(1) {
 			-webkit-animation: scale .8s ease infinite;
-			animation: vh-loading-animation .8s ease infinite
+			animation: mh-loading-animation .8s ease infinite
 		}
 
 		&:nth-of-type(2) {
 			-webkit-animation: scale .8s ease .2s infinite;
-			animation: vh-loading-animation .8s ease .2s infinite
+			animation: mh-loading-animation .8s ease .2s infinite
 		}
 
 		&:nth-of-type(3) {
 			-webkit-animation: scale .8s ease .4s infinite;
-			animation: vh-loading-animation .8s ease .4s infinite
+			animation: mh-loading-animation .8s ease .4s infinite
 		}
 
 	}
 }
 
 // 谷歌广告模块
-.vh-ad {
+.mh-ad {
 	position: relative;
 	display: block;
 	width: 100%;
@@ -293,13 +293,13 @@ html.is-animating {
 	overflow: hidden !important;
 	z-index: 1;
 
-	&.vh-article-ad {
+	&.mh-article-ad {
 		margin-bottom: 1rem;
 		box-sizing: border-box;
 		padding: 0.75rem;
 		border-radius: 0.5rem;
-		background-color: var(--vh-white-color);
-		box-shadow: var(--vh-box-shadow);
+		background-color: var(--mh-white-color);
+		box-shadow: var(--mh-box-shadow);
 		overflow: hidden;
 
 		&::before {
@@ -320,7 +320,7 @@ html.is-animating {
 
 
 
-@keyframes vh-init-show {
+@keyframes mh-init-show {
 	0% {
 		transform: translateY(2rem);
 		opacity: 0;
@@ -332,7 +332,7 @@ html.is-animating {
 	}
 }
 
-@keyframes vh-loading-animation {
+@keyframes mh-loading-animation {
 	50% {
 		height: 25px
 	}
@@ -342,7 +342,7 @@ html.is-animating {
 	}
 }
 
-@-webkit-keyframes vh-init-show {
+@-webkit-keyframes mh-init-show {
 	0% {
 		transform: translateY(2rem);
 		opacity: 0;
@@ -354,7 +354,7 @@ html.is-animating {
 	}
 }
 
-@-webkit-keyframes vh-loading-animation {
+@-webkit-keyframes mh-loading-animation {
 	50% {
 		height: 25px
 	}
